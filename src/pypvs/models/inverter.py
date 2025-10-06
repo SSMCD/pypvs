@@ -16,8 +16,11 @@ class PVSInverter:
     model: str
     last_report_date: int
     last_report_kw: float
+    last_report_mppt_kw: float
     last_report_voltage_v: float
+    last_report_mppt_v: float
     last_report_current_a: float
+    last_report_mppt_a: float
     last_report_frequency_hz: float
     last_report_temperature_c: float
     lte_kwh: float
@@ -36,8 +39,11 @@ class PVSInverter:
             model=data["prodMdlNm"],
             last_report_date=last_report_date,
             last_report_kw=data["p3phsumKw"],
+            last_report_mppt_kw=data["pMppt1Kw"],
             last_report_voltage_v=data["vln3phavgV"],
+            last_report_mppt_v=data["vMppt1V"],
             last_report_current_a=data["i3phsumA"],
+            last_report_mppt_a=data["iMppt1A"],
             last_report_frequency_hz=data["freqHz"],
             last_report_temperature_c=data["tHtsnkDegc"],
             lte_kwh=data["ltea3phsumKwh"],
