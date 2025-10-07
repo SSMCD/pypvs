@@ -124,7 +124,7 @@ class PVSFCGIClient:
         try:
             return await self._post_internal(url, payload_str)
         except PVSFCGIClientLoginError:
-            _LOGGER.warning("Unauthorized access. Retrying login...")
+            _LOGGER.debug("Unauthorized access. Retrying login...")
 
         # Retry login to refresh the session cookies
         await self.login_basic()

@@ -20,6 +20,7 @@ class PVSGateway:
     ram_usage_percent: int
     flash_usage_percent: int
     cpu_usage_percent: int
+    flashwear_percent: int
 
     @classmethod
     def from_varserver(cls, data: dict[str, Any]) -> PVSGateway:
@@ -34,4 +35,5 @@ class PVSGateway:
             ram_usage_percent=data["/sys/info/ram_usage"],
             flash_usage_percent=data["/sys/info/flash_usage"],
             cpu_usage_percent=data["/sys/info/cpu_usage"],
+            flashwear_percent=float.fromhex(data["/sys/pvs/flashwear_type_b"]) * 10,
         )
